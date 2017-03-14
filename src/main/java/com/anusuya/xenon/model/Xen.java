@@ -3,7 +3,6 @@ package com.anusuya.xenon.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.Date;
 
 /**
  * Created by anusu on 3/12/2017.
@@ -20,8 +19,8 @@ public class Xen {
     @Column
     private String description;
 
-    @Column
-    private Date timestamp;
+//    @Column
+//    private Date timestamp;
 
     @Column
     private Boolean isTask;
@@ -52,14 +51,14 @@ public class Xen {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public Date getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
-    }
+//
+//    public Date getTimestamp() {
+//        return timestamp;
+//    }
+//
+//    public void setTimestamp(Date timestamp) {
+//        this.timestamp = timestamp;
+//    }
 
     public Boolean getTask() {
         return isTask;
