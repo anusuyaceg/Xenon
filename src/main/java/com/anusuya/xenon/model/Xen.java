@@ -1,32 +1,46 @@
 package com.anusuya.xenon.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 
 /**
- * Created by anusu on 3/12/2017.
+ * Created by anusuya on 3/12/2017.
  */
 
 @Entity
 public class Xen {
     @Id
+    @GeneratedValue
     private Long id;
 
-    @Column
     private String title;
 
-    @Column
     private String description;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="column_id")
+//    @JsonIgnore
+    private Category category;
+
 
 //    @Column
 //    private Date timestamp;
 
-    @Column
     private Boolean isTask;
 
-    @Column
     private Boolean isCompleted;
+
+    public Xen() {
+    }
+
+    public Xen(String title, String description, Category category, Boolean isTask, Boolean isCompleted) {
+        this.title = title;
+        this.description = description;
+        this.category = category;
+        this.isTask = isTask;
+        this.isCompleted = isCompleted;
+    }
 
     public Long getId() {
         return id;
@@ -74,5 +88,13 @@ public class Xen {
 
     public void setCompleted(Boolean completed) {
         isCompleted = completed;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
