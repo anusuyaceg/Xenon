@@ -1,5 +1,7 @@
 package com.anusuya.xenon.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -19,7 +21,8 @@ public class Category {
     private String description;
 
     @OneToMany(mappedBy = "category")
-//    @OneToMany
+//    @JoinColumn
+    @JsonBackReference
     private Set<Xen> xens;
 
     public Category(String type, String measurement, String description) {

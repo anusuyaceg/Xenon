@@ -20,17 +20,20 @@ public class XenController {
     @Autowired
     XenRepository xenRepository;
 
+    @ResponseBody
     @RequestMapping(method=RequestMethod.POST)
     public Xen createXen(@RequestBody Xen xen) {
         return xenRepository.save(xen);
     }
 
+    @ResponseBody
     @RequestMapping(method= RequestMethod.GET)
     public List<Xen> getAllXens() {
         return xenRepository.findAll();
     }
 
-    @RequestMapping(value="{id}", method=RequestMethod.GET)
+    @ResponseBody
+    @RequestMapping(value="/{id}", method=RequestMethod.GET)
     public ResponseEntity<Xen> getXenById(@PathVariable("id") Long id) {
         Xen xen = xenRepository.findOne(id);
         if(xen == null) {
@@ -40,7 +43,7 @@ public class XenController {
         }
     }
 
-    @RequestMapping(value="{id}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
     public void deleteXen(@PathVariable("id") Long id) {
         xenRepository.delete(id);
     }

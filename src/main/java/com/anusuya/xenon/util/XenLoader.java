@@ -27,18 +27,25 @@ public class XenLoader implements ApplicationListener<ContextRefreshedEvent> {
 
         System.out.print("Loading Data............................");
 
-        Category category = new Category("Budget","units","dollors");
-        categoryRepository.save(category);
+
+        Category category = categoryRepository.save(new Category("Budget","units","dollors"));
 
 
         Xen xen = new Xen();
-        xen.setTitle("Title1");
+        xen.setTitle("Title2");
         xen.setDescription("Description");
         xen.setCompleted(true);
         xen.setTask(true);
         xen.setCategory(category);
 
         xenRepository.save(xen);
+        Xen xen1 = new Xen();
+        xen1.setTitle("Title2");
+        xen1.setDescription("Description2");
+        xen1.setCompleted(true);
+        xen1.setTask(true);
+        xen1.setCategory(category);
+        xenRepository.save(xen1);
 
 
 

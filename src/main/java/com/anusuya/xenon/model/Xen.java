@@ -1,7 +1,5 @@
 package com.anusuya.xenon.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 
 /**
@@ -18,9 +16,8 @@ public class Xen {
 
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="column_id")
-//    @JsonIgnore
     private Category category;
 
 
