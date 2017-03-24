@@ -2,7 +2,7 @@ package com.anusuya.xenon.repository;
 
 import com.anusuya.xenon.model.Category;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import java.util.List;
  * Created by anusuya on 3/15/2017.
  */
 
-@RepositoryRestResource
+@Repository
 public interface CategoryRepository extends CrudRepository<Category,Long> {
 
     List<Category> findAll();

@@ -2,14 +2,14 @@ package com.anusuya.xenon.repository;
 
 import com.anusuya.xenon.model.Xen;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * Created by arangasamy on 3/13/2017.
  */
-@RepositoryRestResource
+@Repository
 public interface XenRepository extends CrudRepository<Xen,Long> {
 
     List<Xen> findAll();
