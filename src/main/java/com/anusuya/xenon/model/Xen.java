@@ -1,6 +1,7 @@
 package com.anusuya.xenon.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by anusuya on 3/12/2017.
@@ -21,8 +22,8 @@ public class Xen {
     private Category category;
 
 
-//    @Column
-//    private Date timestamp;
+    @Column
+    private Date timestamp;
 
     private Boolean isTask;
 
@@ -31,12 +32,15 @@ public class Xen {
     public Xen() {
     }
 
-    public Xen(String title, String description, Category category, Boolean isTask, Boolean isCompleted) {
+
+
+    public Xen(String title, String description, Category category, Boolean isTask, Boolean isCompleted, Date timestamp) {
         this.title = title;
         this.description = description;
         this.category = category;
         this.isTask = isTask;
         this.isCompleted = isCompleted;
+        this.timestamp = timestamp;
     }
 
     public Long getId() {
@@ -62,14 +66,14 @@ public class Xen {
     public void setDescription(String description) {
         this.description = description;
     }
-//
-//    public Date getTimestamp() {
-//        return timestamp;
-//    }
-//
-//    public void setTimestamp(Date timestamp) {
-//        this.timestamp = timestamp;
-//    }
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
 
     public Boolean getTask() {
         return isTask;
